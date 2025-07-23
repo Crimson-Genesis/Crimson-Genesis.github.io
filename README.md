@@ -1,5 +1,5 @@
 # Hello there 👋🏻, I go by Crimson-Genesis.
-This is my summary of my Github Activity:
+This is summary of my Github Activity:
 
 ![Metrics](https://raw.githubusercontent.com/Crimson-Genesis/metrics/refs/heads/master/github-metrics.svg)
 
