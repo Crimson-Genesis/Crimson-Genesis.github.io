@@ -1,0 +1,487 @@
+/* ---------- Retro / Pixel Art Stylesheet ---------- */
+
+/* Color variables (light & dark themes) */
+:root {
+  --bg: #f6f0d9; /* parchment */
+  --panel: #fff9e6;
+  --text: #0b0b0b;
+  --muted: #555;
+  --accent: #0b66ff;
+  --accent-2: #ffd54a;
+  --pixel-border: #222;
+  --shadow: rgba(0, 0, 0, 0.18);
+}
+
+body.dark {
+  --bg: #05050a;
+  --panel: #0b0b10;
+  --text: #e8e8e8;
+  --muted: #bdbdbd;
+  --accent: #6ebcff;
+  --accent-2: #ffd86b;
+  --pixel-border: #9fa4ff;
+  --shadow: rgba(0, 0, 0, 0.6);
+}
+
+/* Typography: pixel & terminal fonts (those are linked in HTML) */
+body.retro {
+  font-family: "VT323", "Courier New", monospace;
+  background:
+    radial-gradient(
+      1200px 400px at 10% 10%,
+      rgba(255, 255, 255, 0.06),
+      transparent 5%
+    ),
+    linear-gradient(
+      180deg,
+      var(--bg),
+      color-mix(in srgb, var(--bg) 95%, #000 5%)
+    );
+  color: var(--text);
+  -webkit-font-smoothing: none;
+  -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+  padding: 0;
+  /* padding: 18px; */
+  -webkit-text-size-adjust: 100%;
+}
+
+/* Page container with chunky pixel border */
+
+/* .page.pixel-frame{ */
+/*   max-width: 1100px; */
+/*   margin: 8px auto; */
+/*   background: linear-gradient(180deg, var(--panel), color-mix(in srgb, var(--panel) 90%, #000 2%)); */
+/*   padding: 16px; */
+/*   box-shadow: 8px 8px 0 var(--pixel-border), 14px 18px 28px var(--shadow); */
+/*   border: 6px solid var(--pixel-border); */
+/*   image-rendering: pixelated; */
+/* } */
+.page.pixel-frame {
+  /* make box-sizing include border/padding */
+  box-sizing: border-box;
+
+  /* limit width for desktop while still being centered */
+  max-width: 1100px;
+  width: calc(100% - 32px); /* keep small gutter on tiny screens */
+  margin: 12px auto; /* center, small outer margin so border isn't clipped */
+
+  background: linear-gradient(
+    180deg,
+    var(--panel),
+    color-mix(in srgb, var(--panel) 90%, #000 2%)
+  );
+  padding: 12px; /* keep inner padding but smaller for fullscreen */
+  box-shadow:
+    8px 8px 0 var(--pixel-border),
+    14px 18px 28px var(--shadow);
+  border: 6px solid var(--pixel-border);
+
+  image-rendering: pixelated;
+  display: flex;
+  flex-direction: column;
+  min-height: calc(
+    100vh - 48px
+  ); /* allow the main to size; leaves room for margins */
+  max-height: calc(100vh - 24px);
+  overflow: hidden; /* prevent outer scroll from page content */
+}
+
+/* ---------- Header (pixel-art title + logo) ---------- */
+.header.pixel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 6px 6px;
+  border-bottom: 4px dashed var(--pixel-border);
+}
+
+/* left block: logo + title */
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.pixel-logo {
+  image-rendering: pixelated;
+  border: 3px solid var(--pixel-border);
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.6), transparent 40%);
+  padding: 4px;
+}
+
+/* Title uses Press Start 2P for that chunky pixel feel */
+.title-block {
+  line-height: 1;
+}
+.title-line {
+  font-family: "Press Start 2P", "VT323", monospace;
+  font-size: 18px;
+  letter-spacing: 2px;
+  color: var(--accent-2);
+  text-shadow: 2px 2px 0 var(--pixel-border);
+}
+.subtitle-line {
+  font-family: "VT323", monospace;
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 4px;
+}
+
+/* Right side: button */
+.btn.pixel-btn {
+  font-family: "VT323", monospace;
+  font-size: 12px;
+  padding: 8px 12px;
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--accent) 20%, #fff 80%),
+    var(--accent)
+  );
+  color: var(--panel);
+  border: 4px solid var(--pixel-border);
+  box-shadow: 4px 4px 0 var(--pixel-border);
+  cursor: pointer;
+  transform: translateZ(0);
+}
+.btn.pixel-btn:active {
+  transform: translateY(2px);
+  box-shadow: 2px 2px 0 var(--pixel-border);
+}
+
+/* ---------- Main layout ---------- */
+.main.pixel-main {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 16px;
+  margin-top: 14px;
+  align-items: start;
+}
+
+/* Sidebar */
+.pixel-sidebar {
+  background: repeating-linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.02) 0 6px,
+    transparent 6px 12px
+  );
+  padding: 12px;
+  border: 4px solid var(--pixel-border);
+  min-height: 300px;
+  line-height: 1.5;
+}
+.pixel-sidebar h2 {
+  font-family: "Press Start 2P", monospace;
+  font-size: 12px;
+  margin: 0 0 8px 0;
+  color: var(--accent-2);
+  text-shadow: 1px 1px 0 var(--pixel-border);
+}
+.pixel-sidebar ul {
+  margin: 10px 0 0 16px;
+  padding: 0;
+  list-style: square;
+}
+.pixel-sidebar li {
+  margin-bottom: 8px;
+}
+.pixel-sidebar a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 13px;
+}
+.pixel-sidebar a:hover {
+  text-decoration: underline dotted;
+  text-shadow: 0 0 6px rgba(0, 0, 0, 0.15);
+}
+
+/* Search box */
+.search-box {
+  margin-bottom: 8px;
+}
+.search-input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 8px;
+  border: 3px solid var(--pixel-border);
+  font-family: "VT323", monospace;
+  font-size: 14px;
+  color: var(--text);
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--panel) 97%, #000 3%),
+    var(--panel)
+  );
+  outline: none;
+}
+.search-input::placeholder {
+  color: var(--muted);
+}
+
+/* small helper text */
+.small {
+  font-size: 11px;
+  color: var(--muted);
+  margin: 8px 0 0 0;
+}
+
+/* ---------- Content area ---------- */
+.pixel-content {
+  padding: 12px;
+  border: 4px solid var(--pixel-border);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent);
+  min-height: 360px;
+}
+.viewer {
+  font-family: "VT323", monospace;
+}
+.paper-title {
+  font-family: "Press Start 2P", monospace;
+  font-size: 16px;
+  color: var(--accent-2);
+  margin: 0 0 12px 0;
+}
+
+/* Markdown view tweaks */
+.md-view {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--text);
+}
+.md-view h1,
+.md-view h2,
+.md-view h3 {
+  font-family: "Press Start 2P", monospace;
+  color: var(--accent);
+  margin-top: 8px;
+}
+.md-view p,
+.md-view li {
+  font-family: "VT323", monospace;
+  color: var(--text);
+}
+.md-view pre {
+  background: #000;
+  color: #0f0;
+  padding: 10px;
+  overflow: auto;
+  border: 3px solid var(--pixel-border);
+  font-family: monospace;
+  font-size: 13px;
+}
+.md-view code {
+  background: rgba(0, 0, 0, 0.06);
+  padding: 2px 6px;
+  border-radius: 2px;
+}
+
+/* Images look pixelated and capped */
+.md-view img {
+  max-width: 100%;
+  height: auto;
+  image-rendering: pixelated;
+  border: 3px solid var(--pixel-border);
+}
+
+/* Links */
+a {
+  color: var(--accent);
+  font-weight: 700;
+}
+a:hover {
+  text-shadow: 0 0 8px rgba(0, 102, 255, 0.12);
+}
+
+/* Footer */
+.pixel-footer {
+  margin-top: 10px;
+  padding-top: 8px;
+  font-size: 12px;
+  color: var(--muted);
+  border-top: 3px dashed var(--pixel-border);
+}
+
+/* Utility: visually hidden (for labels) */
+.visually-hidden {
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+  white-space: nowrap;
+}
+
+/* Muted inline text */
+.muted {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+/* ---------- Pixel hover & focus touches ---------- */
+/* Chunky focus ring */
+.search-input:focus,
+.btn.pixel-btn:focus,
+.pixel-sidebar a:focus {
+  outline: 4px solid rgba(11, 102, 255, 0.12);
+  outline-offset: 3px;
+}
+
+/* Tiny 8-bit hover 'glow' */
+.pixel-sidebar a:hover {
+  filter: drop-shadow(0 0 6px rgba(11, 102, 255, 0.2));
+}
+
+/* Responsive - stack on narrow screens */
+@media (max-width: 880px) {
+  .main.pixel-main {
+    grid-template-columns: 1fr;
+  }
+  .pixel-sidebar {
+    order: 2;
+  }
+  .pixel-content {
+    order: 1;
+    margin-bottom: 12px;
+  }
+  .title-line {
+    font-size: 14px;
+  }
+}
+
+/* Small print: reduce PDF iframe bloat on tiny screens */
+@media (max-width: 480px) {
+  iframe {
+    height: 55vh !important;
+  }
+}
+
+/* ----------------------------------------------------------------------------------------------- */
+/* ----------------------------------------------------------------------------------------------- */
+/* ---------- FULLSCREEN + only viewer scrolls ---------- */
+
+/* Prevent the outer page from producing scrollbars; let inner viewer scroll */
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* no outer scrollbars */
+  box-sizing: border-box;
+}
+
+/* Page container fits inside viewport while keeping border visible.
+   Use box-sizing:border-box so borders + padding are counted into size. */
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+.page.pixel-frame {
+  box-sizing: border-box;
+  width: calc(100vw - 24px); /* leave a small gutter so border isn't clipped */
+  height: calc(100vh - 24px);
+  max-width: none;
+  margin: 12px auto; /* center with small outer margin */
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; /* outer container doesn't scroll */
+
+  border: 6px solid var(--pixel-border);
+  box-shadow:
+    8px 8px 0 var(--pixel-border),
+    14px 18px 28px var(--shadow);
+}
+
+/* header and footer keep their intrinsic height and don't flex */
+.header.pixel-header,
+.pixel-footer {
+  flex: 0 0 auto;
+}
+
+/* main takes the remaining vertical space */
+.main.pixel-main {
+  flex: 1 1 auto;
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 12px;
+  width: 100%;
+  /* box-sizing: border-box; */
+  overflow: hidden; /* main column must not scroll externally */
+  align-items: stretch;
+}
+
+/* Sidebar: allow it to scroll internally if its content is longer */
+.pixel-sidebar {
+  height: 100%;
+  overflow: auto; /* sidebar can scroll if needed */
+  /* box-sizing: border-box; */
+}
+
+/* Content column must fill available space and not cause outer scrolling */
+.pixel-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden; /* outer content shouldn't scroll */
+  /* box-sizing: border-box; */
+}
+
+/* Viewer fits exactly and doesn't produce outer scrollbars */
+.viewer {
+  flex: 1 1 auto;
+  height: 100%;
+  width: 100%;
+  overflow: hidden; /* viewer itself won't scroll; inner children will */
+  /* box-sizing: border-box; */
+  padding: 8px 6px 12px 6px;
+}
+
+/* doc-wrap: column layout where title is static and the body area scrolls */
+.doc-wrap {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  min-height: 0; /* IMPORTANT: lets children with overflow behave */
+  /* box-sizing: border-box; */
+}
+
+/* Markdown area: this is the only region that scrolls */
+.md-view {
+  flex: 1 1 auto;
+  min-height: 0; /* IMPORTANT */
+  overflow: auto; /* <-- allow scrolling inside markdown viewer */
+  padding: 12px;
+  /* box-sizing: border-box; */
+}
+
+/* Ensure md child elements wrap and don't force overflow past .md-view */
+.md-view *,
+.md-view img,
+.md-view pre,
+.md-view table,
+.md-view code {
+  max-width: 100%;
+  box-sizing: border-box;
+  white-space: normal;
+  word-break: break-word;
+}
+
+/* PDF iframe: make it fill the available viewer area and scroll internally */
+.viewer iframe {
+  flex: 1 1 auto;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  /* box-sizing: border-box; */
+}
+
+/* Safety: avoid any element pushing beyond viewport */
+*:not(html):not(body) {
+  max-width: 100vw;
+  /* box-sizing: border-box; */
+}
