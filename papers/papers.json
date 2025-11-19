@@ -3,5 +3,25 @@
     "title": "Bio",
     "type": "md",
     "path": "papers/BIO.md"
+  },
+  {
+    "title": "Cheat Sheet Algorithms for Supervised and Unsupervised Learning",
+    "type": "pdf",
+    "path": "papers/1.pdf"
+  },
+  {
+    "title": "Core of ML",
+    "type": "pdf",
+    "path": "papers/2.pdf"
+  },
+  {
+    "title": "evaluating-machine-learning-models",
+    "type": "pdf",
+    "path": "papers/3.pdf"
+  },
+  {
+    "title": "Handling imbalanced datasets",
+    "type": "pdf",
+    "path": "papers/4.pdf"
   }
 ]
