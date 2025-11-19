@@ -4,7 +4,7 @@
 
 ---
 
-## About
+# About
 
 My work revolves around five core areas:  
 Distributed systems, Cybersecurity, Low-level programming, Algorithmic reasoning, and Applied AI engineering.  
@@ -22,9 +22,9 @@ No unnecessary complexity.
 No surface-level knowledge.  
 Just systems understood deeply and built correctly.  
 
-## Core Axes
+# Core Axes
 
-# **Distributed & Cloud-Native Systems**
+## **Distributed & Cloud-Native Systems**
 
 * Kubernetes, Docker, container runtimes
 * ZeroMQ IPC pipelines and multi‑process topologies
@@ -36,7 +36,7 @@ Just systems understood deeply and built correctly.
 
 ---
 
-# **Offensive Security & Reverse Engineering**
+## **Offensive Security & Reverse Engineering**
 
 * Protocol analysis, network surface mapping
 * Binary introspection and runtime tracing
@@ -49,7 +49,7 @@ Just systems understood deeply and built correctly.
 
 ---
 
-# **Systems-Level & Low-Level Engineering**
+## **Systems-Level & Low-Level Engineering**
 
 * Custom Linux distro engineering
 * Kernel and subsystem customization
@@ -62,15 +62,15 @@ Just systems understood deeply and built correctly.
 
 ---
 
-## Support Axes
+# Support Axes
 
-# **Algorithmic Engineering**
+## **Algorithmic Engineering**
 
 * Data structures for distributed schedulers and simulation nodes
 * Algorithms tuned for throughput and low‑latency dataflow
 * Logic applied through compiler, OS, and protocol work
 
-# **Applied AI Engineering**
+## **Applied AI Engineering**
 
 * Model integration into distributed subsystems
 * Lightweight inference‑pipeline modification
@@ -78,9 +78,9 @@ Just systems understood deeply and built correctly.
 
 ---
 
-## Technical Domains
+# Technical Domains
 
-# **Operating Systems & Toolchains**
+## **Operating Systems & Toolchains**
 
 * Custom Arch‑based distro
 * Kernel modifications
@@ -91,7 +91,7 @@ Just systems understood deeply and built correctly.
 
 ---
 
-# **Distributed Simulation Engineering**
+## **Distributed Simulation Engineering**
 
 * Reactor‑system modeling
 * Multi‑module simulation graphs
@@ -100,7 +100,7 @@ Just systems understood deeply and built correctly.
 
 ---
 
-# **Runtime & Game Systems**
+## **Runtime & Game Systems**
 
 * Memory hooks and execution rewriting
 * Codepath patching
@@ -109,14 +109,14 @@ Just systems understood deeply and built correctly.
 
 ---
 
-## Direction & Goals
+# Direction & Goals
 
 Long‑term focus: becoming a **Pentagon‑grade systems engineer** — combining distributed architecture, adversarial reasoning, system internals, and simulation‑driven R&D into a single engineering discipline.  
 The aim is mastery of interaction: how systems behave, break, scale, and transform.  
 
 ---
 
-## Current Stack
+# Current Stack
 
 **Languages:** C, Python, Rust, Go, Shell, x86  
 **Systems:** Linux (Arch/custom), Docker, Kubernetes, ZeroMQ  
